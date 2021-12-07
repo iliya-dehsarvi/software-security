@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import subprocess
 import optparse
-
+import re
 
 def get_args():
     parser = optparse.OptionParser()
@@ -25,3 +25,6 @@ if __name__ == '__main__':
 
     ifconfig_result = subprocess.check_output(['ifconfig', options.interface])
     print(ifconfig_result)
+
+    res = re.search(r'\w\w:\w\w:\w\w:\w\w:\w\w:\w\w', ifconfig_result)
+    print(res)
