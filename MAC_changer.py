@@ -22,3 +22,5 @@ def change_mac(interface, new_mac):
 if __name__ == '__main__': 
     options, _ = get_args()
     change_mac(options.interface, options.new_mac)
+
+    subprocess.check_output(['ifconfig', options.interface])
