@@ -27,4 +27,5 @@ if __name__ == '__main__':
     print(ifconfig_result)
 
     results = re.search(r'\w\w:\w\w:\w\w:\w\w:\w\w:\w\w', ifconfig_result)
-    print(results.group[0])
+    
+    if results: print(results.group[0])
