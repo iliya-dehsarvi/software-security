@@ -26,5 +26,5 @@ if __name__ == '__main__':
     ifconfig_result = subprocess.check_output(['ifconfig', options.interface])
     print(ifconfig_result)
 
-    results = re.find(r'\w\w:\w\w:\w\w:\w\w:\w\w:\w\w', ifconfig_result)
-    print(results)
+    results = re.search(r'\w\w:\w\w:\w\w:\w\w:\w\w:\w\w', ifconfig_result)
+    print(results.group[0])
