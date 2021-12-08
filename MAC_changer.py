@@ -32,4 +32,4 @@ if __name__ == '__main__':
     current_mac = get_current_mac(options.interface)
     change_mac(options.interface, options.new_mac)
     new_mac = get_current_mac(options.interface)
-    validate(current_mac, new_mac)
+    print(validate(current_mac, new_mac))
