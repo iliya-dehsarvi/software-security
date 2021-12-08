@@ -18,14 +18,17 @@ def change_mac(interface, new_mac):
     subprocess.call(['ifconfig', interface, 'hw', 'ether', new_mac])
     subprocess.call(['ifconfig', interface, 'up'])
 
+def get_current_mac(interface):
+    ifconfig_result = subprocess.check_output(['ifconfig', interface])
+    results = re.search(r'\w\w:\w\w:\w\w:\w\w:\w\w:\w\w', ifconfig_result)
+    if results: return results.group[0]
+
+def validate(current_mac, new_mac):
+    if current_mac != new_mac: return '[+] the MAC, ' + current_mac + ' was changed to ' + new_mac
 
 if __name__ == '__main__': 
     options, _ = get_args()
+    current_mac = get_current_mac(options.interface)
     change_mac(options.interface, options.new_mac)
-
-    ifconfig_result = subprocess.check_output(['ifconfig', options.interface])
-    print(ifconfig_result)
-
-    results = re.search(r'\w\w:\w\w:\w\w:\w\w:\w\w:\w\w', ifconfig_result)
-    
-    if results: print(results.group[0])
+    new_mac = get_current_mac(options.interface)
+    validate(current_mac, new_mac)
