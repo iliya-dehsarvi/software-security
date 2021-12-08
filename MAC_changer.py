@@ -21,12 +21,12 @@ def change_mac(interface, new_mac):
 def get_current_mac(interface):
     ifconfig_result = subprocess.check_output(['ifconfig', interface])
     results = re.search(r'\w\w:\w\w:\w\w:\w\w:\w\w:\w\w', ifconfig_result)
-    if results: return results.group[0]
+    if results: return results.group(0)
 
 def validate(current_mac, new_mac):
     if current_mac != new_mac: return '[+] the MAC address, ' + current_mac + ' was changed to ' + new_mac
     return '[-] the MAC address was not changed'
-    
+
 if __name__ == '__main__': 
     options, _ = get_args()
     current_mac = get_current_mac(options.interface)
