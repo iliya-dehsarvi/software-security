@@ -12,4 +12,4 @@ def scan(IP):
         print(element[1].hwsrc)
 
 if __name__ == '__main__': 
-    scan('10.20.3.1/24')
+    scan('172.20.10.1/24')
