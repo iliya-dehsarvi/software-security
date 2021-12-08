@@ -7,7 +7,9 @@ def scan(IP):
     broadcast = scapy.Ether(dst='ff:ff:ff:ff:ff:ff')   
     arp_request_broadcast = broadcast/arp_request
     answered, _ = scapy.srp(arp_request_broadcast, timeout=1)
-    print(answered.summary())
+    for element in answered:
+        print(element[1].psrc)
+        print(element[1].hwsrc)
 
 if __name__ == '__main__': 
     scan('10.20.3.1/24')
