@@ -10,4 +10,4 @@ def scan(IP):
     print(answered.summary())
 
 if __name__ == '__main__': 
-    scan('10.20.3.134.1/24')
+    scan('10.20.3.1/24')
