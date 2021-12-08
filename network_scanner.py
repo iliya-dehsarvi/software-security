@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import scapy.all as scapy
-import netw
 
 def scan(IP):
     arp_request = scapy.ARP(pdst=IP)
