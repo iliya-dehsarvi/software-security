@@ -29,4 +29,5 @@ try:
             count += 2
             print('\r[+] Sent two packets, count: ' + str(count), end='') 
             time.sleep(2)
-except KeyboardInterrupt: exit(1)
+except KeyboardInterrupt: 
+    restore('192.168.89.134', '192.168.89.2')
