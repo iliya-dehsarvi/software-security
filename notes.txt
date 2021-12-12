@@ -13,3 +13,4 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 
 route -n (to get the ip of the ROUTER)
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
